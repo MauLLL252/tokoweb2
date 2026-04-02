@@ -1,17 +1,17 @@
-@extends('v_layouts.app')
-@section('content')
-<!-- template -->
-
-<!-- STORE -->
-      <div id="store"> 
+@extends('v_layouts.app') 
+@section('content') 
+<!-- template --> 
+ 
+<!-- STORE --> 
+<div id="store"> 
     <!-- row --> 
     <div class="row"> 
         @foreach ($produk as $row) 
         <!-- Product Single --> 
         <div class="col-md-4 col-sm-6 col-xs-6"> 
             <div class="product product-single"> 
-                <div class="product-thumb"> 
-                    <div class="product-label"> 
+                <div class="product-thumb">
+                     <div class="product-label"> 
                         <span>Kategori</span> 
                         <span class="sale">{{ $row->kategori->nama_kategori }}</span> 
                     </div> 
@@ -19,13 +19,11 @@
                     <a href="{{ route('produk.detail', $row->id) }}"> 
                         <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Detail Produk</button> 
                     </a> 
-                    <img src="{{ asset('storage/img-produk/thumb_md_' . $row->foto) }}" 
-alt=""> 
+                    <img src="{{ asset('storage/img-produk/thumb_md_' . $row->foto) }}" alt=""> 
                 </div> 
                 <div class="product-body"> 
                     <h3 class="product-price"> Rp. {{ number_format($row->harga, 0, ',', '.') }} <span 
-                            class="product-old-price">{{ $row->kategori->nama_kategori 
-}}</span></h3> 
+                            class="product-old-price">{{ $row->kategori->nama_kategori }}</span></h3> 
  
                     <h2 class="product-name"><a href="#">{{ $row->nama_produk }}</a></h2> 
                     <div class="product-btns"> 
@@ -48,7 +46,7 @@ alt="">
     </div> 
     <!-- /row --> 
 </div> 
-<!-- /STORE -->
-
- <!-- end template -->
-@endsection
+<!-- /STORE --> 
+ 
+<!-- end template--> 
+@endsection 
