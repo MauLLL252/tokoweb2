@@ -71,7 +71,7 @@
                     <ul class="header-btns">
                         <!-- Cart -->
                         <li class="header-cart dropdown default-dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                            <a href="{{ route('order.cart') }}">
                                 <div class="header-btns-icon">
                                     <i class="fa fa-shopping-cart"></i>
                                 </div>
@@ -326,7 +326,7 @@ list"></i></span>
                         <!-- footer logo -->
                         <div class="footer-logo">
                             <a class="logo" href="#">
-                                <img src="./img/logo.png" alt="">
+                                <img src="{{ asset('img/logo.png') }}" alt="">
                             </a>
                         </div>
                         <!-- /footer logo -->
