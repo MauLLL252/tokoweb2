@@ -8,6 +8,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\RajaOngkirController;
 
 Route::get('/', function () {
     // return view('welcome');
@@ -75,3 +76,18 @@ Route::get('/auth/redirect', [CustomerController::class, 'redirect'])->name('aut
 Route::get('/auth/google/callback', [CustomerController::class, 'callback'])->name('auth.callback'); 
 // Logout 
 Route::post('/logout', [CustomerController::class, 'logout'])->name('logout');  
+
+// API RAJAONGKIR
+Route::get('/list-ongkir', function () { 
+    $response = Http::withHeaders([ 
+    'key' => 'RAJAONGKIR_API_KEY' 
+    ])->get('https://rajaongkir.komerce.id/api/v1/destination/province'); //ganti 'province' atau 'city' 
+    dd($response->json()); 
+}); 
+Route::get('/cek-ongkir', function () { 
+    return view('ongkir'); 
+}); 
+ 
+Route::get('/provinces', [RajaOngkirController::class, 'getProvinces']); 
+Route::get('/cities', [RajaOngkirController::class, 'getCities']); 
+Route::post('/cost', [RajaOngkirController::class, 'getCost']); 
